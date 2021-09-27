@@ -12,4 +12,7 @@ CREATE TABLE if NOT EXISTS departments(
     departmentName VARCHAR,
     staffNumber INTEGER
 );
-
+CREATE TABLE if NOT EXISTS users(
+    id SERIAL PRIMARY KEY,
+    userName VARCHAR
+);
