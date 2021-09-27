@@ -14,7 +14,7 @@ public class Sql2oDepartmentsdao implements Departmentsdao {
 
    @Override
     public void add(Departments departments){
-        String sql = "INSERT INTO departments (departmentName, staffNumber) VALUES (:departmentName, :staffNumber");
+        String sql = "INSERT INTO departments (departmentName, staffNumber) VALUES (:departmentName, :staffNumber)";
         try (Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(departments)
@@ -53,6 +53,26 @@ public class Sql2oDepartmentsdao implements Departmentsdao {
                        .addParameter("id", id);
            }
        }
+    public void deleteById(int id){
+       String sql = "DELETE from departments WHERE id = :id";
+       try(Connection con = sql2o.open()){
+           con.createQuery(sql)
+                   .addParameter("id", id)
+                   .executeUpdate();
+       } catch (Sql2oException ex){
+           System.out.println(ex);
+       }
+    }
+
+    @Override
+    public void clearAll(){
+       String sql = "DELETE from departments";
+       try(Connection con = sql2o.open()){
+           con.createQuery(sql).executeUpdate();
+       } catch(Sql2oException ex){
+           System.out.println(ex);
+       }
+    }
 
 
 
