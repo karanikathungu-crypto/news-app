@@ -35,16 +35,25 @@ public class Sql2oDepartmentsdao implements Departmentsdao {
    }
 
    @Override
-    public Departments findById(int id){
-       try (Connection con = sql2o.open()){
+    public Departments findById(int id) {
+       try (Connection con = sql2o.open()) {
            return con.createQuery("SELECT * FROM departments WHERE id = :id")
                    .addParameter("id", id)
                    .executeAndFetchFirst(Departments.class);
 
        }
-   @Override
-
    }
+    @Override
+    public void update(int id, String departmentName, int staffNumber){
+           String sql = "UPDATE departments SET (departmentName, staffNumber) = (:departmentName, :staffNumber) WHERE id = :id";
+           try(Connection con = sql2o.open()){
+               con.createQuery(sql)
+                       .addParameter("departmentName", departmentName)
+                       .addParameter("staffNumber", staffNumber)
+                       .addParameter("id", id);
+           }
+       }
+
 
 
 
