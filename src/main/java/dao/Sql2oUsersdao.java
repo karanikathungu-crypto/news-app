@@ -8,7 +8,7 @@ public class Sql2oUsersdao implements Usersdao {
     Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/companynews","ken","1234");
 
     public void add (User user){
-        String sql = "INSERT INTO users (userName) VALUES (:userName)";
+        String sql = "INSERT INTO users (userName, position) VALUES (:userName, :position)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(user)
@@ -41,11 +41,12 @@ public class Sql2oUsersdao implements Usersdao {
     }
 
     @Override
-    public void update(String userName){
-        String sql = "UPDATE users SET (userName) = (:userName)";
+    public void update(String userName, String position){
+        String sql = "UPDATE users SET (userName, position) = (:userName, :position)";
         try(Connection con = sql2o.open()){
             con.createQuery(sql)
-                    .addParameter("userName", userName);
+                    .addParameter("userName", userName)
+                    .addParameter("position",position);
         }
     }
 
