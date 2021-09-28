@@ -4,10 +4,28 @@ import java.util.Objects;
 
 public class User {
     private String userName;
+    private String position;
     private int id;
 
-    public User(String userName){
+    public User(String userName, String position){
         this.userName = userName;
+        this.position = position;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public int getId(int id){
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
