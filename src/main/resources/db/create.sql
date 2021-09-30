@@ -1,18 +1,18 @@
-SET MODE PostgresSQL;
-CREATE DATABASE companynews;
-\c companynews;
+--SET MODE PostgresSQL;
 CREATE TABLE if NOT EXISTS news(
-    id SERIAL PRIMARY KEY,
+    id int PRIMARY KEY auto_increment,
     headline VARCHAR,
     information VARCHAR,
 );
 
 CREATE TABLE if NOT EXISTS departments(
-    id SERIAL PRIMARY KEY,
+    id int PRIMARY KEY auto_increment,
     departmentName VARCHAR,
     staffNumber INTEGER
 );
 CREATE TABLE if NOT EXISTS users(
-    id SERIAL PRIMARY KEY,
-    userName VARCHAR
+    id int PRIMARY KEY auto_increment,
+    userName VARCHAR,
+    companyPosition VARCHAR,
 );
+

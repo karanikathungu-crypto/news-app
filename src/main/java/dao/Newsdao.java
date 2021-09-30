@@ -7,16 +7,16 @@ import java.util.List;
 
 public interface Newsdao {
     void add (News news);//create
-    void addNewsToDepartments( News news, Departments departments);
+//    void addNewsToDepartments( News news, Departments departments);
 
     List<News> getAll();
 
     News findById(int id);
 
-    List<News> getAllDepartmentsForNews(int departmentsId);
+//    List<News> getAllDepartmentsForNews(int departmentsId);
 
     //update
-    void update( String headline);
+    void update( int id, String headline, String information);
 
     //delete
     void deleteById(int id);

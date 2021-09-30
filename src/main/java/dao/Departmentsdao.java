@@ -11,13 +11,13 @@ import java.util.List;
 public interface Departmentsdao {
 
     void add (Departments departments);//create
-    void addDepartmentsToNews(Departments departments, News news);
+//    void addDepartmentsToNews(Departments departments, News news);
 
     List<Departments> getAll();
 
     Departments findById(int id);
 
-    List<News> getAllNewsForDepartment(int departmentsId);
+//    List<News> getAllNewsForDepartment(int departmentsId);
 
     //update
     void update(int id, String departmentName, int staffNumber);

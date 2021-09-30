@@ -28,6 +28,13 @@ public class Departments {
         this.staffNumber = staffNumber;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,4 +49,7 @@ public class Departments {
     public int hashCode() {
         return Objects.hash(departmentName, staffNumber, id);
     }
+
+
+
 }

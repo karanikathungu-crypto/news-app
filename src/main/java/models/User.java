@@ -4,23 +4,23 @@ import java.util.Objects;
 
 public class User {
     private String userName;
-    private String position;
+    private String companyPosition;
     private int id;
 
-    public User(String userName, String position){
+    public User(String userName, String companyPosition){
         this.userName = userName;
-        this.position = position;
+        this.companyPosition = companyPosition;
     }
 
-    public String getPosition() {
-        return position;
+    public String getCompanyPosition() {
+        return companyPosition;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setCompanyPosition(String companyPosition) {
+        this.companyPosition = companyPosition;
     }
 
-    public int getId(int id){
+    public int getId() {
         return id;
     }
 
@@ -38,15 +38,19 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Departments)) return false;
+        if (!(o instanceof User)) return false;
         User user = (User) o;
         return id == user.id &&
-                Objects.equals(userName, user.userName);
+                Objects.equals(userName, user.userName)&&
+                Objects.equals(companyPosition, user.companyPosition);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userName , id);
+        return Objects.hash(userName , companyPosition, id);
     }
+
+
+
 }
 
